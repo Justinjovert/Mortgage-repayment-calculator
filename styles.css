@@ -1,5 +1,4 @@
-
-body{
+body {
     --primary-lime: hsl(61, 70%, 52%);
     --primary-red: hsl(4, 69%, 50%);
     --slate100: hsl(202, 86%, 94%);
@@ -8,10 +7,12 @@ body{
     --slate700: hsl(200, 24%, 40%);
     --slate900: hsl(202, 55%, 16%);
 
-    
+
+    --fontFamily: "Plus Jakarta Sans";
+
     padding: 0;
     margin: 0;
-    font-family: "Plus Jakarta Sans";
+    font-family: var(--fontFamily);
     font-size: 16px;
     background-color: var(--slate100);
     display: grid;
@@ -19,7 +20,7 @@ body{
     min-height: 100dvh;
 }
 
-.main-container{
+.main-container {
     background-color: white;
     max-width: 950px;
     border-radius: 20px;
@@ -27,25 +28,28 @@ body{
     grid-template-columns: 1fr 1fr;
     color: var(--slate700);
 }
-.header-container{
+
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: end;
     margin: 0 0 2.5rem 0;
 }
 
-.header-container > h3{
+.header-container>h3 {
     padding: 0;
     margin: 0;
     font-size: 1.3rem;
     color: var(--slate900);
 }
-.header-container > button{
+
+.header-container>button {
     cursor: pointer;
     border: 0;
     background-color: transparent;
     text-decoration: underline;
     color: var(--slate700);
+    white-space: nowrap;
 }
 
 .userinput {
@@ -53,7 +57,8 @@ body{
     flex-direction: column;
     gap: 5px;
 }
-.userinput-input{
+
+.userinput-input {
     padding: 10px 15px;
     font-size: 16px;
     width: 100%;
@@ -64,62 +69,97 @@ body{
     border-radius: 5px;
     outline: 1px solid var(--slate700);
     border: 0;
+    font-family: var(--fontFamily);
+    font-weight: 700;
+    overflow: hidden;
+    color: var(--slate700);
 }
 
-.userinput-input:focus{
+.userinput-input:focus {
     outline: 1px solid var(--primary-lime);
     border: 0;
 }
-.input-wrapper > label:focus{
+
+.userinput-input-error {
+    outline: 1px solid var(--primary-red) !important;
+}
+
+.input-wrapper>label:focus {
     background-color: var(--primary-lime);
 }
 
-.input-wrapper{
+.input-wrapper {
     position: relative;
 }
-.input-wrapper > label {
+
+.input-wrapper-label {
     position: absolute;
     background-color: var(--slate100);
     padding: 10px;
     z-index: 1;
-    top: -7px;
+    top: -5px;
     font-weight: 700;
+    border-radius: 0 5px 5px 0;
 }
 
-.left{
-    left: 0 !important;
+.error-message {
+    margin-top: 10px;
+    display: inline-block;
+    color: hsl(0, 66%, 54%);
+    font-weight: 400;
+    font-size: 14px;
+    align-self: start;
+    font-family: var(--font);
 }
-.right{
-    background-color: red;
+
+
+.error-label {
+    background-color: var(--primary-red) !important;
+}
+
+.selected-label {
+    background-color: hsl(61, 58%, 71%) !important;
+}
+
+.left {
+    left: 0 !important;
+    padding: 10px 1em;
+    border-radius: 5px 0 0 5px;
+}
+
+.right {
     right: 0 !important;
 }
 
-.sub-userinput{
+.sub-userinput {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-.sub-input{
+.sub-input {
     min-width: 120px;
     max-width: 250px;
     z-index: 20;
-    padding-right: 4.5rem;
+    padding-right: 4rem;
 }
 
+.userinput-radio {
+    margin-top: 1.5rem;
+}
 
-
-.userinput-radio, .userinput, .sub-userinput{
+.userinput,
+.sub-userinput {
     margin: 1.5rem 0;
 }
 
 
-.query-wrapper{
+.query-wrapper {
     display: flex;
     flex-grow: 1;
 }
 
-.query-option{
+.query-option {
     border-radius: 5px;
     padding: 10px 15px;
     border: 1px solid var(--slate700);
@@ -128,8 +168,9 @@ body{
     flex-grow: 1;
 }
 
-.query-option input, .query-option > label{
-    accent-color:  var(--primary-lime);
+.query-option input,
+.query-option>label {
+    accent-color: var(--primary-lime);
     cursor: pointer;
     margin: 0;
 }
@@ -139,7 +180,7 @@ body{
 } */
 
 
-.userinput-calculate{
+.userinput-calculate {
     margin: 2rem 0 1rem 0;
     border: 0;
     border-radius: 25px;
@@ -153,90 +194,108 @@ body{
     color: var(--slate900);
     font-size: 1rem;
 }
-.userinput-calculate > img {
+
+.userinput-calculate>img {
     padding-bottom: 3px;
 }
 
-.empty-results{
+.empty-results {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
-    display: none;
 }
 
-.empty-results > h3{
+.empty-results>h3 {
     font-weight: 700;
 }
 
-.empty-results > p {
+.empty-results>p {
     font-weight: 400;
     font-size: 16px;
     color: var(--slate300);
     text-align: center;
 }
 
-.complete-results{
+.complete-results {
     font-size: 16px;
+    display: none;
 }
-.complete-results  h3{
+
+.complete-results h3 {
     padding: 0;
     margin: 0;
     font-size: 1.3rem;
 }
 
-.complete-results > p{
+.complete-results>p {
     color: var(--slate500);
     font-size: 1rem;
     line-height: 1.4rem;
+
 }
 
-.completed-results-container{
+.completed-results-container {
     background-color: hsl(202, 52%, 12%);
     box-sizing: border-box;
-    padding: 20px;
+    padding: 1.5rem;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    margin: 2rem 0;
+    font-size: 16px;
 }
 
-.completed-results-container > span {
+.completed-results-container>span {
     color: var(--slate500);
 }
 
-.repayment-value{
-    font-size: 4rem;
+.repayment-value {
+    font-size: 4em;
     font-weight: 700;
     color: var(--primary-lime) !important;
     padding-top: 0.2rem;
 }
 
-.line-split{
+
+.line-start {
+    background-color: var(--primary-lime);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 3px;
+}
+
+.line-split {
     background-color: var(--slate900);
     margin: 1.5rem 0;
     height: 1px;
 }
 
-.term-value{
+.term-value {
     color: white !important;
     font-weight: 700;
     font-size: 1.3rem;
     margin-top: 0.3rem;
 }
 
-.results-container{
+.results-container {
     background-color: var(--slate900);
     color: white;
     border-bottom-left-radius: 50px;
 }
 
-.userinput-container, .results-container{
+.userinput-container,
+.results-container {
     box-sizing: border-box;
     padding: 30px;
 }
 
-.userinput-container * label{
+.userinput-container * label {
     margin: 5px 0;
 }
 
@@ -252,19 +311,37 @@ body{
 }
 
 
-@media screen and (max-width: 700px){
-    .main-container{
+@media screen and (max-width: 700px) {
+    .main-container {
         grid-template-columns: 1fr;
     }
-    .sub-userinput{
+
+    .sub-userinput {
         flex-direction: column;
     }
-    .sub-input{
+
+    .sub-input {
         min-width: none;
         max-width: none;
         width: 100%;
     }
-    .results-container{
+
+    .results-container {
         border-radius: 0;
+    }
+
+    .userinput-calculate {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .repayment-value {
+        font-size: 3.5em;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .repayment-value {
+        font-size: 2.7em;
     }
 }

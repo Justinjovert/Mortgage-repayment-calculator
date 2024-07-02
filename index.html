@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script type ="" src ="main.js" defer></script>
     <title>Frontend Mentor | Mortgage repayment calculator</title>
 
 </head>
@@ -21,13 +22,13 @@
         <section class="userinput-container">
             <header class="header-container">
                 <h3>Mortgage Calculator</h3>
-                <button>Clear All</button>
+                <button data-clear>Clear All</button>
             </header>
             <div class="userinput">
                 <label>Mortgage Amount</label>
                 <div class="input-wrapper">
-                    <label class="left">£</label>
-                    <input class="userinput-input" style="padding-left: 2.5rem;">
+                    <label class="left input-wrapper-label">£</label>
+                    <input data-mortgage-amount class="userinput-input" style="padding-left: 3rem;">
                 </div>
 
             </div>
@@ -36,16 +37,16 @@
                 <div style="display: flex; flex-direction: column;">
                     <label>Mortgage Term</label>
                     <div class="input-wrapper">
-                        <label class="right">years</label>
-                        <input class="userinput-input sub-input">
+                        <label class="right input-wrapper-label " >years</label>
+                        <input data-mortgage-term class="userinput-input sub-input">
                     </div>
                 </div>
 
                 <div style="display: flex; flex-direction: column;">
                     <label>Interest Rate</label>
                     <div class="input-wrapper">
-                        <label class="right">%</label>
-                        <input class="userinput-input sub-input">
+                        <label class="right input-wrapper-label">%</label>
+                        <input data-interest-rate class="userinput-input sub-input">
                     </div>
                 </div>
             </div>
@@ -60,8 +61,8 @@
                 </div>
 
                 <div class="query-wrapper">
-                    <label for="option2" class="query-option"><input type='radio' id='option2' name="mortgageType"
-                            value='interest'>
+                    <label for="option2" class="query-option">
+                        <input type='radio' id='option2' name="mortgageType" value='interest'>
                         Interest Only
                     </label>
                 </div>
@@ -92,7 +93,6 @@
 
             <div class="complete-results">
                 <!-- Completed results start -->
-
                 <header style="display: flex; align-items: end;">
                     <h3>Your results</h3>
                 </header>
@@ -101,12 +101,13 @@
                     To adjust the results, edit the form and click “calculate repayments” again.</p>
 
                 <div class="completed-results-container">
+                    <div class="line-start"></div>
                     <span>Your monthly repayments</span>
-                    <span class="repayment-value" data-repayment-value>P1,797.74</span>
+                    <span class="repayment-value" data-monthly-repayment></span>
                     <div class="line-split"></div>
 
                     <span>Total you'll repay over the term</span>
-                    <span class="term-value" data-term-value>P539,322.94</span>
+                    <span class="term-value" data-term-value></span>
                 </div>
 
                 <!-- Completed results end -->
